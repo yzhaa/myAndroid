@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/regist_ll_pw"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginStart="70dp"
+            android:id="@+id/regist_tv_pw"
+            android:layout_height="wrap_content"
+            android:text="@string/login_password" android:textSize="26sp"/>
+        <EditText
+            android:id="@+id/regist_et_pw"
+            android:layout_width="match_parent"
+            android:layout_marginEnd="30dp"
+            android:hint="@string/login_et_pw"
+            android:inputType="textPassword"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_above="@id/regist_ll_pw"
+    android:id="@+id/login_ll_id"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/regist_tv_id"
+        android:layout_marginStart="70dp"
+        android:text="@string/login_id" android:textSize="26sp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:hint="@string/login_et_id"
+        android:id="@+id/regist_et_id"
+        />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/regist_ll_pw"
+        android:id="@+id/regist_ll_repw"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/regist_tv_repw"
+            android:layout_marginStart="20dp"
+            android:text="@string/login_repassword" android:textSize="26sp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:hint="@string/login_et_repw"
+            android:id="@+id/regist_et_repw"
+            android:inputType="textPassword"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/regist_btn_regist"
+        android:text="@string/login_btn_regist"
+        android:layout_width="wrap_content"
+        android:textSize="24sp"
+        android:layout_below="@id/regist_ll_repw"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        android:layout_height="wrap_content"
+        />
+
+</RelativeLayout>

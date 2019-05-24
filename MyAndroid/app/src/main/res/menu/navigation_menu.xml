@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<group android:checkableBehavior="single">
+
+    <item android:id="@+id/nav_login"
+        android:title="@string/login_btn_lgoin"
+        android:icon="@drawable/dowm"/>
+    <item
+        android:id="@+id/nav_regist"
+        android:title="@string/login_btn_regist"
+        android:icon="@drawable/up"
+        />
+
+    <item android:id="@+id/nav_clect"
+        android:icon="@drawable/up"
+        android:title="@string/login_collece"/>
+
+    <item android:id="@+id/nav_cancel"
+        android:icon="@drawable/up"
+        android:title="@string/login_cancel"/>
+
+
+</group>
+</menu>

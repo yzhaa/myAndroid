@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+    <Button
+        android:layout_width="0dp"
+        android:id="@+id/navigation_btn_back"
+        android:layout_height="match_parent"
+        android:background="@drawable/arrow"
+        android:layout_weight="1"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="7"
+        android:id="@+id/main_tv_navigation"
+        android:gravity="center"
+        android:textSize="24sp"/>
+    <Button
+        android:id="@+id/navigation_btn_serach"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/search"
+        />
+</LinearLayout>
