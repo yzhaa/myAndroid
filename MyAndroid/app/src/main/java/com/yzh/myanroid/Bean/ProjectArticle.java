@@ -1,59 +1,62 @@
 package com.yzh.myanroid.Bean;
 
+/**
+ * 项目的文章
+ */
 public class ProjectArticle {
-    private String id;
-    private String chapterName;
-    private String desc;
-    private String envelopePic;
-    private String link;
-    private String title;
+    private String mId;
+    private String mChapterName;
+    private String mDesc;
+    private String mEnvelopePic;
+    private String mLink;
+    private String mTitle;
 
     public String getId() {
-        return id;
+        return mId;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.mId = id;
     }
 
     public String getChapterName() {
-        return chapterName;
+        return mChapterName;
     }
 
     public void setChapterName(String chapterName) {
-        this.chapterName = chapterName;
+        this.mChapterName = chapterName;
     }
 
     public String getDesc() {
-        return desc;
+        return mDesc;
     }
 
     public String getEnvelopePic() {
-        return envelopePic;
+        return mEnvelopePic;
     }
 
     public String getLink() {
-        return link;
+        return mLink;
     }
 
     public String getTitle() {
-        return title;
+        return mTitle;
     }
 
 
     public void setDesc(String desc) {
-        this.desc = desc;
+        this.mDesc = desc;
     }
 
     public void setEnvelopePic(String envelopePic) {
-        this.envelopePic = envelopePic;
+        this.mEnvelopePic = envelopePic;
     }
 
     public void setLink(String link) {
-        this.link = link;
+        this.mLink = link;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.mTitle = title;
     }
 }

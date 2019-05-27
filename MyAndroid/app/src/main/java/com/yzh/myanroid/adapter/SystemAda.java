@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.yzh.myanroid.Bean.System;
 import com.yzh.myanroid.Bean.SystemTag;
 import com.yzh.myanroid.R;
+import com.yzh.myanroid.util.Constant;
 import com.yzh.myanroid.util.MyApplication;
 import com.yzh.myanroid.util.MyBundle;
 import com.yzh.myanroid.view.Fragment.SystemFragment;
@@ -16,30 +17,33 @@ import com.yzh.myanroid.widge.FlowGroup;
 
 import java.util.List;
 
+/**
+ * 体系下的布局
+ */
 public class SystemAda {
-    private static SystemAda systemAda;
+    private static SystemAda mSystemAda;
 
-    private List<System> systemList;
-    private List<List<SystemTag>> systemTagList;
-    private SystemMainFragment systemMainFragment;
+    private List<System> mSystemList;
+    private List<List<SystemTag>> mSystemTagList;
+    private SystemMainFragment mSystemMainFragment;
 
-    public static SystemAda getSystemAda(){
-        if(systemAda==null){
+    public static SystemAda getmSystemAda(){
+        if(mSystemAda ==null){
             synchronized (SystemAda.class){
-                if(systemAda==null){
-                    systemAda = new SystemAda();
+                if(mSystemAda ==null){
+                    mSystemAda = new SystemAda();
                 }
             }
         }
-        return systemAda;
+        return mSystemAda;
     }
 
 
 
     public void set( List<System> systemList,List<List<SystemTag>> systemTagList,SystemMainFragment systemMainFragment){
-        this.systemList = systemList;
-        this.systemTagList = systemTagList;
-        this.systemMainFragment = systemMainFragment;
+        this.mSystemList = systemList;
+        this.mSystemTagList = systemTagList;
+        this.mSystemMainFragment = systemMainFragment;
     }
 
     public void initView() {
@@ -48,21 +52,21 @@ public class SystemAda {
         LinearLayout.LayoutParams lpitag = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         lptitle.setMargins(10, 10, 10, 10);
         lpitag.setMargins(10, 10, 10, 10);
-        FlowGroup flowGroup = systemMainFragment.getmFlowGroup();
-        for (int i = 0; i < systemList.size(); i++) {
-            System system = systemList.get(i);
-            TextView tvtitle = new TextView(MyApplication.getContext());
+        FlowGroup flowGroup = mSystemMainFragment.getmFlowGroup();
+        for (int i = 0; i < mSystemList.size(); i++) {
+            System system = mSystemList.get(i);
+            TextView tvtitle = new TextView(MyApplication.getmContext());
             tvtitle.setText(system.getName());
             tvtitle.setTextSize(24);
             tvtitle.setGravity(Gravity.CENTER);
             tvtitle.setLayoutParams(lptitle);
             flowGroup.addView(tvtitle);
-            List<SystemTag> systemTags = systemTagList.get(i);
+            List<SystemTag> systemTags = mSystemTagList.get(i);
             for (int j = 0; j < systemTags.size(); j++) {
                 SystemTag systemTag = systemTags.get(j);
                 final String tag = systemTag.getName();
                 final String id = systemTag.getId();
-                TextView tvtage = new TextView(MyApplication.getContext());
+                TextView tvtage = new TextView(MyApplication.getmContext());
                 tvtage.setText(tag);
                 tvtage.setTextSize(16);
                 tvtage.setBackgroundResource(R.drawable.shape);
@@ -70,15 +74,15 @@ public class SystemAda {
                 tvtage.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (systemMainFragment.getParentFragment() != null) {
-                            ((SystemFragment) systemMainFragment.getParentFragment()).replece(MyBundle.getMyBundle()
-                                    .put("url", "https://www.wanandroid.com/article/list/?/json?cid=" + id).put("tag", tag).build());
+                        if (mSystemMainFragment.getParentFragment() != null) {
+                            ((SystemFragment) mSystemMainFragment.getParentFragment()).replece(MyBundle.getMyBundle()
+                                    .put("url", Constant.ARTICLE_ITEM_URL + id).put("tag", tag).build());
                         }
                     }
                 });
                 flowGroup.addView(tvtage);
             }
-            View view = new View(MyApplication.getContext());
+            View view = new View(MyApplication.getmContext());
             view.setLayoutParams(spra);
             flowGroup.addView(view);
         }

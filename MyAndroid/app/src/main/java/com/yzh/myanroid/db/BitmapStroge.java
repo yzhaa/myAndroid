@@ -15,13 +15,11 @@ import java.io.IOException;
 
 
 public class BitmapStroge  {
-    public static final String BANNER = "bn";
-
 
 
     public static void readASFile(Bitmap bitmap ,String name){
         try {
-            FileOutputStream fos = MyApplication.getContext().openFileOutput(name + ".jpeg",Context.MODE_PRIVATE);
+            FileOutputStream fos = MyApplication.getmContext().openFileOutput(name + ".jpeg",Context.MODE_PRIVATE);
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
             fos.flush();
             fos.close();
@@ -33,7 +31,7 @@ public class BitmapStroge  {
     public static Bitmap getBitmap(String name){
         FileInputStream fis = null;
             try {
-                fis = MyApplication.getContext().openFileInput( name+".jpeg");
+                fis = MyApplication.getmContext().openFileInput( name+".jpeg");
                 return BitmapFactory.decodeStream(fis);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

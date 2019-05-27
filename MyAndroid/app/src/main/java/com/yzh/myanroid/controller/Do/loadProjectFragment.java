@@ -6,6 +6,7 @@ import com.yzh.myanroid.adapter.ProjectPageAdapter;
 import com.yzh.myanroid.adapter.TabLayoutAdapter;
 import com.yzh.myanroid.db.MyData;
 import com.yzh.myanroid.util.CheakNetwork;
+import com.yzh.myanroid.util.Constant;
 import com.yzh.myanroid.util.HttpURlConnectionUtill;
 import com.yzh.myanroid.util.JsonParase;
 import com.yzh.myanroid.view.Fragment.ProjectFragment;
@@ -27,7 +28,7 @@ public class loadProjectFragment implements DBCInterface {
        mList = MyData.read(Project.class, null, null);
        if(mList.size()==0){
            if(CheakNetwork.cheakNetAndSend()) {
-               mList = JsonParase.getResult(HttpURlConnectionUtill.getStringResult("https://www.wanandroid.com/project/tree/json"), "data", Project.class);
+               mList = JsonParase.getResult(HttpURlConnectionUtill.getStringResult(Constant.PROJECT_TREE_URL), "data", Project.class);
                mIsStorage = true;
            }
        }
@@ -40,7 +41,7 @@ public class loadProjectFragment implements DBCInterface {
             TabLayoutAdapter.getInstance().set(mProjectFragment.getmTabLayout(), mList);
             TabLayoutAdapter.getInstance().initTabLayout();
             ProjectPageAdapter.getInstance(mProjectFragment).initView(mList.size());
-        } else throw new RuntimeException("哪里都加载不到");
+        }
         if(mIsStorage){
             new DBAsy(new Storage(Project.class,null, mList)).execute();
         }
@@ -51,7 +52,7 @@ public class loadProjectFragment implements DBCInterface {
             List<String> urls = new ArrayList<>();
             List<String> chapterName = new ArrayList<>();
             for (Project p : list) {
-                urls.add("https://www.wanandroid.com/project/list/?/json?cid=" + p.getId());
+                urls.add(Constant.PROJECT_ITEM_URL + p.getId());
                 chapterName.add(p.getName());
             }
             projectFragment.setmUrls(urls);

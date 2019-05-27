@@ -1,14 +1,13 @@
 package com.yzh.myanroid.util;
 
 import android.app.Activity;
-
 import java.util.LinkedList;
 import java.util.List;
 
 public class ActivityCollector {
     private static List<Activity> mActivityList = new LinkedList<>();
 
-     static void addActivity(Activity activity) {
+    public static void addActivity(Activity activity) {
         mActivityList.add(activity);
     }
 
@@ -16,7 +15,7 @@ public class ActivityCollector {
         return mActivityList.get(mActivityList.size() - 1);
     }
 
-     static void removeActivity(Activity activity) {
+    public static void removeActivity(Activity activity) {
         mActivityList.remove(activity);
     }
 

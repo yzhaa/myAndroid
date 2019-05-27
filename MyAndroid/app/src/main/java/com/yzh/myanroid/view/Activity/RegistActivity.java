@@ -10,7 +10,7 @@ import android.widget.EditText;
 import com.yzh.myanroid.R;
 
 import com.yzh.myanroid.controller.Do.RegistAsy;
-import com.yzh.myanroid.util.BaseActivity;
+import com.yzh.myanroid.view.Activity.BaseActivity;
 import com.yzh.myanroid.util.MyToast;
 
 public class RegistActivity extends BaseActivity implements View.OnClickListener {

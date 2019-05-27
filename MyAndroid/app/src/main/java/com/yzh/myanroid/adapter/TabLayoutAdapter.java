@@ -6,30 +6,34 @@ import com.yzh.myanroid.Bean.Project;
 
 import java.util.List;
 
+/**
+ * 项目模块中的tab
+ */
+
 public class TabLayoutAdapter {
-    private static TabLayoutAdapter tabLayoutAdapter;
-    private TabLayout tabLayout;
-    private List<Project> list;
+    private static TabLayoutAdapter mTabLayoutAdapter;
+    private TabLayout mTabLayout;
+    private List<Project> mList;
 
     public static TabLayoutAdapter getInstance() {
-        if(tabLayoutAdapter==null){
+        if(mTabLayoutAdapter ==null){
             synchronized (TabLayoutAdapter.class){
-                if(tabLayoutAdapter==null){
-                    tabLayoutAdapter = new TabLayoutAdapter();
+                if(mTabLayoutAdapter ==null){
+                    mTabLayoutAdapter = new TabLayoutAdapter();
                 }
             }
         }
-        return tabLayoutAdapter;
+        return mTabLayoutAdapter;
     }
 
     public void set(TabLayout tabLayout, List<Project> list){
-        this.tabLayout = tabLayout;
-        this.list = list;
+        this.mTabLayout = tabLayout;
+        this.mList = list;
     }
 
     public void initTabLayout() {
-        for (Project p : list) {
-            tabLayout.addTab(tabLayout.newTab().setText(p.getName()));
+        for (Project p : mList) {
+            mTabLayout.addTab(mTabLayout.newTab().setText(p.getName()));
         }
 
     }

@@ -1,59 +1,62 @@
 package com.yzh.myanroid.Bean;
 
+/**
+ * 文章对于的实体
+ */
 public class Article {
-    private String id;
-    private String author;
-    private String chapterName;
-    private String link;
-    private String niceDate;
-    private String title;
+    private String mId;
+    private String mAuthor;
+    private String mChapterName;
+    private String mLink;
+    private String mNiceDate;
+    private String mTitle;
 
     public String getId() {
-        return id;
+        return mId;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.mId = id;
     }
 
     public String getAuthor() {
-        return author;
+        return mAuthor;
     }
 
     public String getChapterName() {
-        return chapterName;
+        return mChapterName;
     }
 
     public String getLink() {
-        return link;
+        return mLink;
     }
 
     public String getNiceDate() {
-        return niceDate;
+        return mNiceDate;
     }
 
     public String getTitle() {
-        return title;
+        return mTitle;
     }
 
     public void setAuthor(String author) {
-        this.author = author;
+        this.mAuthor = author;
     }
 
     public void setChapterName(String chapterName) {
-        this.chapterName = chapterName;
+        this.mChapterName = chapterName;
     }
 
     public void setLink(String link) {
-        this.link = link;
+        this.mLink = link;
     }
 
     public void setNiceDate(String niceDate) {
-        this.niceDate = niceDate;
+        this.mNiceDate = niceDate;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.mTitle = title;
     }
 
 }

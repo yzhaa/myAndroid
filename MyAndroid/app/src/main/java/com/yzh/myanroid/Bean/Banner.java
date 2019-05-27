@@ -1,47 +1,50 @@
 package com.yzh.myanroid.Bean;
 
+/**
+ * 轮播图对应的实体
+ */
 public class Banner  {
-    private String id;
-    private String title;
-    private String imagePath;
-    private String url;
+    private String mId;
+    private String mTitle;
+    private String mImagePath;
+    private String mUrl;
 
     public Banner() {
     }
 
 
     public String getId() {
-        return id;
+        return mId;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.mId = id;
     }
 
     public String getTitle() {
-        return title;
+        return mTitle;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.mTitle = title;
     }
 
     public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
+        this.mImagePath = imagePath;
     }
 
     public void setUrl(String url) {
-        this.url = url;
+        this.mUrl = url;
     }
 
     public String getImagePath() {
-        return imagePath;
+        return mImagePath;
     }
 
 
 
     public String getUrl() {
-        return url;
+        return mUrl;
     }
 
 

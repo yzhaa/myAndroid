@@ -12,7 +12,6 @@ import com.yzh.myanroid.R;
 
 import com.yzh.myanroid.adapter.HotSearchAda;
 import com.yzh.myanroid.controller.BaseContrloler;
-import com.yzh.myanroid.controller.asy.HotLoadAsy;
 import com.yzh.myanroid.util.MyBundle;
 import com.yzh.myanroid.util.MyIntent;
 import com.yzh.myanroid.widge.FlowGroup;
@@ -24,9 +23,9 @@ public class SearchActivity extends AppCompatActivity {
         Button btnBack = findViewById(R.id.search_btn_back);
         Button btnSearch = findViewById(R.id.search_btn_search);
         FlowGroup flowGroup = findViewById(R.id.serach_fg_hot);
-        HotSearchAda.setFlowGroup(flowGroup);
+        HotSearchAda.setmFlowGroup(flowGroup);
         final EditText editText = findViewById(R.id.search_et);
-        HotSearchAda.setFlowGroup(flowGroup);
+        HotSearchAda.setmFlowGroup(flowGroup);
         BaseContrloler.loadHotKey();
 
         btnBack.setOnClickListener(new View.OnClickListener() {

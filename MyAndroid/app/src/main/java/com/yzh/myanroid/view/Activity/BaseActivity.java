@@ -1,4 +1,4 @@
-package com.yzh.myanroid.util;
+package com.yzh.myanroid.view.Activity;
 
 import android.content.IntentFilter;
 import android.os.Bundle;
@@ -6,6 +6,10 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.yzh.myanroid.broadcastReceiver.NetBroadcastReceiver;
+import com.yzh.myanroid.util.ActivityCollector;
+import com.yzh.myanroid.util.CheakNetwork;
+import com.yzh.myanroid.util.Constant;
+import com.yzh.myanroid.util.MyToast;
 
 
 public class BaseActivity extends AppCompatActivity implements NetBroadcastReceiver.HanderNet{

@@ -1,34 +1,34 @@
 package com.yzh.myanroid.Bean;
 
 
+/**
+ * 体系下的tab
+ */
 
 public class System {
-    private String name;
-    private String id;
+    private String mName;
+    private String mId;
 
-    public System( String id,String name) {
-        this.name = name;
-        this.id = id;
-    }
+
 
     public System() {
 
     }
 
     public String getName() {
-        return name;
+        return mName;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.mName = name;
     }
 
     public String getId() {
-        return id;
+        return mId;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.mId = id;
     }
 
 }

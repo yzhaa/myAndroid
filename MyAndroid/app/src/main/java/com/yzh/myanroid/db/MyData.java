@@ -17,7 +17,7 @@ public class MyData extends SQLiteOpenHelper {
 
     private static final String DATA_BASE_NAME = "MyData";
 
-    private static MyData myData = new MyData(MyApplication.getContext(), DATA_BASE_NAME, null, 1);
+    private static MyData mMyData = new MyData(MyApplication.getmContext(), DATA_BASE_NAME, null, 1);
 
     private static final String HISTORY = "create table History(id integer primary key autoincrement,name text)";
     private static final String HOTKEY = "create table HotKey(name text)";
@@ -54,7 +54,7 @@ public class MyData extends SQLiteOpenHelper {
 
     public static <T> void write(List list, Class<T> tClass, String curPage) {
             try {
-                SQLiteDatabase db = myData.getWritableDatabase();
+                SQLiteDatabase db = mMyData.getWritableDatabase();
                 Field[] fields;
                 if(tClass.getSuperclass() == Article.class){
                     fields = tClass.getSuperclass().getDeclaredFields();
@@ -65,13 +65,14 @@ public class MyData extends SQLiteOpenHelper {
                 List<Method> methods = new ArrayList<>();
                 ContentValues values = new ContentValues();
                 for (Field f:fields) {
-                    methods.add(tClass.getMethod("get" + f.getName().substring(0, 1).toUpperCase() + f.getName().substring(1)));
+                    methods.add(tClass.getMethod("get" + f.getName().substring(1)));
                 }
 
                 if(curPage!=null) {
                     for (int i = 0; i < list.size(); i++) {
                         for (int k=0;k<fields.length;k++) {
-                            values.put(fields[k].getName(), methods.get(k).invoke(list.get(i))+"");
+                            String name = fields[k].getName();
+                            values.put(name.substring(1,2).toLowerCase()+name.substring(2), methods.get(k).invoke(list.get(i))+"");
                         }
                         values.put("curPage", curPage);
                         db.insert(tClass.getSimpleName(), null, values);
@@ -81,7 +82,8 @@ public class MyData extends SQLiteOpenHelper {
                 else {
                     for (int i = 0; i < list.size(); i++) {
                         for (int k=0;k<fields.length;k++) {
-                            values.put(fields[k].getName(), methods.get(k).invoke(list.get(i))+"");
+                            String name = fields[k].getName();
+                            values.put(name.substring(1,2).toLowerCase()+name.substring(2), methods.get(k).invoke(list.get(i))+"");
                         }
                         db.insert(tClass.getSimpleName(), null, values);
                         values.clear();
@@ -97,7 +99,7 @@ public class MyData extends SQLiteOpenHelper {
     }
 
     public static <T> List<T> read(Class<T> tClass,String selection,String[] selectionArgs ){
-        SQLiteDatabase db = myData.getReadableDatabase();
+        SQLiteDatabase db = mMyData.getReadableDatabase();
         List<T> list = new ArrayList<>();
         Cursor cursor = null;
         Field[] fields;
@@ -111,7 +113,7 @@ public class MyData extends SQLiteOpenHelper {
             }
             List<Method> methods = new ArrayList<>();
             for (Field f:fields) {
-                methods.add(tClass.getMethod("set" + f.getName().substring(0, 1).toUpperCase() + f.getName().substring(1), f.getType()));
+                methods.add(tClass.getMethod("set"  + f.getName().substring(1), f.getType()));
             }
             cursor = db.query(tClass.getSimpleName(), null, selection, selectionArgs, null, null, null);
 
@@ -119,7 +121,8 @@ public class MyData extends SQLiteOpenHelper {
                 do {
                     T t = tClass.newInstance();
                     for (int i = 0; i < fields.length; i++) {
-                        methods.get(i).invoke(t, cursor.getString(cursor.getColumnIndex(fields[i].getName())));
+                        String name = fields[i].getName();
+                        methods.get(i).invoke(t, cursor.getString(cursor.getColumnIndex(name.substring(1,2).toLowerCase()+name.substring(2))));
                     }
                     list.add(t);
                 } while (cursor.moveToNext());

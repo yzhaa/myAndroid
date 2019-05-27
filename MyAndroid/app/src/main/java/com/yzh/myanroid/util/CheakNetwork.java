@@ -10,7 +10,7 @@ import android.net.NetworkInfo;
 public class CheakNetwork {
 
     public static int getNetworkState() {
-        Context context = MyApplication.getContext();
+        Context context = MyApplication.getmContext();
         ConnectivityManager connectivity = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (connectivity != null) {
             NetworkInfo info = connectivity.getActiveNetworkInfo();
@@ -31,7 +31,7 @@ public class CheakNetwork {
 
     public static boolean cheakNetAndSend(){
         if(getNetworkState()==Constant.NETWORK_NONE){
-            MyApplication.getContext().sendBroadcast(new Intent().setAction(Constant.No_Net));
+            MyApplication.getmContext().sendBroadcast(new Intent().setAction(Constant.No_Net));
             return false;
         }
         return true;

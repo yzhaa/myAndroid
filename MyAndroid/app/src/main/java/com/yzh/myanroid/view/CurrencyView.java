@@ -69,13 +69,13 @@ public class CurrencyView  {
 
     private void update(){
         BaseContrloler.loadArticle(Constant.UPDATE, mRequest, this, mPageNumber, mChapterName,
-                mArticleUrl, mKeyWord,"https://www.wanandroid.com/article/top/json");
+                mArticleUrl, mKeyWord,Constant.TOP_ARTICLE_URL);
         mPageNumber++;
     }
 
     public void add(){
         BaseContrloler.loadArticle(Constant.ADD, mRequest, this, mPageNumber, mChapterName,
-                mArticleUrl, mKeyWord,"https://www.wanandroid.com/article/top/json");
+                mArticleUrl, mKeyWord,Constant.TOP_ARTICLE_URL);
 
         mPageNumber++;
     }

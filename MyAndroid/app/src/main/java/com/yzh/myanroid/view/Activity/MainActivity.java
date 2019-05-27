@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import com.yzh.myanroid.R;
-import com.yzh.myanroid.util.BaseActivity;
 import com.yzh.myanroid.util.MyToast;
 import com.yzh.myanroid.view.Fragment.HomeFragment;
 import com.yzh.myanroid.view.Fragment.ProjectFragment;

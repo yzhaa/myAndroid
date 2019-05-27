@@ -1,3 +1,4 @@
+/*
 package com.yzh.myanroid.db;
 
 import android.content.Context;
@@ -14,7 +15,7 @@ public class MyCookieStorge {
 
 
   public static void writeCookie(boolean isStroge, String  name,String password){
-      SharedPreferences sp = MyApplication.getContext().getSharedPreferences("cookie", Context.MODE_PRIVATE);
+      SharedPreferences sp = MyApplication.getmContext().getSharedPreferences("cookie", Context.MODE_PRIVATE);
       SharedPreferences.Editor editor = sp.edit();
       if(!isStroge){
           editor.clear();
@@ -32,7 +33,7 @@ public class MyCookieStorge {
 
   public static Map<String,?> readCookie(){
       Map<String, Object> map = new HashMap<>();
-      SharedPreferences sp = MyApplication.getContext().getSharedPreferences("cookie", Context.MODE_PRIVATE);
+      SharedPreferences sp = MyApplication.getmContext().getSharedPreferences("cookie", Context.MODE_PRIVATE);
       boolean state = sp.getBoolean("state", false);
       map.put("state", false);
       if(state){
@@ -47,3 +48,4 @@ public class MyCookieStorge {
   }
 
 }
+*/

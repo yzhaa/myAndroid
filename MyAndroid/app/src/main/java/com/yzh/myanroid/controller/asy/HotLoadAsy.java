@@ -7,6 +7,7 @@ import com.yzh.myanroid.adapter.HotSearchAda;
 import com.yzh.myanroid.controller.Do.Storage;
 import com.yzh.myanroid.db.MyData;
 import com.yzh.myanroid.util.CheakNetwork;
+import com.yzh.myanroid.util.Constant;
 import com.yzh.myanroid.util.HttpURlConnectionUtill;
 import com.yzh.myanroid.util.JsonParase;
 
@@ -19,7 +20,7 @@ public class HotLoadAsy  extends AsyncTask<Void,Void, List<HotKey>> {
         List<HotKey> list = MyData.read(HotKey.class, null, null);
         if(list.size()==0){
            if(CheakNetwork.cheakNetAndSend()) {
-               list = JsonParase.getResult(HttpURlConnectionUtill.getStringResult("https://www.wanandroid.com//hotkey/json"), "data", HotKey.class);
+               list = JsonParase.getResult(HttpURlConnectionUtill.getStringResult(Constant.HOT_KEY_URL), "data", HotKey.class);
                mIsStorage = true;
            }
         }
@@ -28,7 +29,7 @@ public class HotLoadAsy  extends AsyncTask<Void,Void, List<HotKey>> {
 
     @Override
     protected void onPostExecute(List<HotKey> hotKeys) {
-        HotSearchAda.setList(hotKeys);
+        HotSearchAda.setmList(hotKeys);
         HotSearchAda.init();
         if(mIsStorage) {
             new DBAsy(new Storage(HotKey.class, null, hotKeys)).execute();

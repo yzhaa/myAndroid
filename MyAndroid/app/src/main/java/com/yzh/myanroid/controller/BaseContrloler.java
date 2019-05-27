@@ -43,17 +43,7 @@ public class BaseContrloler {
     public static void loadProjectPage(PageFragment pageFragment,int choice) {
         new ProjectPageAsy(pageFragment,choice).execute();
     }
-/*
-    public static void exitAccount() {
-        if (!MyCookieStorge.IsState) {
-            ((MainActivity) ActivityCollector.getCurrentActivity()).showOperation(3, "无账号登陆");
-        } else {
-            MyCookieStorge.writeCookie(false, null, null);
-            MyCookieStorge.IsState = false;
-            ((MainActivity) ActivityCollector.getCurrentActivity()).showOperation(3, "注销成功");
-        }
-    }
-*/
+
 
 }
 

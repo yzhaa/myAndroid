@@ -1,9 +1,9 @@
 package com.yzh.myanroid.Bean;
 
 public class SystemTag {
-    private String id;
-    private String name;
-    private String parentChapterId;
+    private String mId;
+    private String mName;
+    private String mParentChapterId;
 
 
 
@@ -11,26 +11,26 @@ public class SystemTag {
     }
 
     public String getId() {
-        return id;
+        return mId;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.mId = id;
     }
 
     public String getName() {
-        return name;
+        return mName;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.mName = name;
     }
 
     public String getParentChapterId() {
-        return parentChapterId;
+        return mParentChapterId;
     }
 
     public void setParentChapterId(String parentChapterId) {
-        this.parentChapterId = parentChapterId;
+        this.mParentChapterId = parentChapterId;
     }
 }

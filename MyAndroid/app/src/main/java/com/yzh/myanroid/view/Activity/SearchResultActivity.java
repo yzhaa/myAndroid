@@ -19,7 +19,7 @@ public class SearchResultActivity extends AppCompatActivity {
         setContentView(view);
         Bundle bundle = getIntent().getExtras();
         if(bundle!=null){
-            new CurrencyView().initView(view, Constant.POST,"https://www.wanandroid.com/article/query/?/json", bundle.getString("keyWord"),null);
+            new CurrencyView().initView(view, Constant.POST,Constant.SEARCH_URL, bundle.getString("keyWord"),null);
         }
         Button button = findViewById(R.id.search_result_btn);
         button.setOnClickListener(new View.OnClickListener() {

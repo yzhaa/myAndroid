@@ -39,8 +39,8 @@ public class loadSystem implements DBCInterface {
     @Override
     public void result() {
         if (mSystemList.size() > 0 && mListList != null && mListList.size() > 0) {
-            SystemAda.getSystemAda().set(mSystemList, mListList, mSystemMainFragment);
-            SystemAda.getSystemAda().initView();
+            SystemAda.getmSystemAda().set(mSystemList, mListList, mSystemMainFragment);
+            SystemAda.getmSystemAda().initView();
         }
         if(mIsStorage){
             new DBAsy(new Storage(System.class, null, mSystemList)).execute();

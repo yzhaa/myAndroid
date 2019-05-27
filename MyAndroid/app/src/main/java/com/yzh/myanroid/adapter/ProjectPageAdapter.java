@@ -11,27 +11,29 @@ import com.yzh.myanroid.view.Fragment.ProjectFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * 项目模块
+ */
 
 public class ProjectPageAdapter extends FragmentPagerAdapter {
-    private static ProjectPageAdapter projectPageAdapter;
-    private List<PageFragment> pageFragments;
+    private static ProjectPageAdapter mProjectPageAdapter;
+    private List<PageFragment> mPageFragments;
     private ProjectFragment mProjectFragment;
 
     public static ProjectPageAdapter getInstance( ProjectFragment mProjectFragment) {
-        if(projectPageAdapter==null){
+        if(mProjectPageAdapter ==null){
             synchronized (ProjectPageAdapter.class){
-                if(projectPageAdapter==null){
-                    projectPageAdapter = new ProjectPageAdapter( mProjectFragment);
+                if(mProjectPageAdapter ==null){
+                    mProjectPageAdapter = new ProjectPageAdapter( mProjectFragment);
                 }
             }
         }
-        return projectPageAdapter;
+        return mProjectPageAdapter;
     }
 
     private ProjectPageAdapter( ProjectFragment mProjectFragment) {
         super(mProjectFragment.getChildFragmentManager());
-        pageFragments = new ArrayList<>();
+        mPageFragments = new ArrayList<>();
         this.mProjectFragment = mProjectFragment;
     }
 
@@ -42,7 +44,7 @@ public class ProjectPageAdapter extends FragmentPagerAdapter {
             PageFragment pageFragment = new PageFragment();
             pageFragment.setArguments(MyBundle.getMyBundle().put("url", mProjectFragment.getmUrls().get(i))
                     .put("chapterName", mProjectFragment.getmTabNames().get(i)).build());
-            pageFragments.add(pageFragment);
+            mPageFragments.add(pageFragment);
         }
         notifyDataSetChanged();
     }
@@ -50,12 +52,12 @@ public class ProjectPageAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int i) {
-        return pageFragments.get(i);
+        return mPageFragments.get(i);
     }
 
     @Override
     public int getCount() {
-        return pageFragments.size();
+        return mPageFragments.size();
     }
 
 }

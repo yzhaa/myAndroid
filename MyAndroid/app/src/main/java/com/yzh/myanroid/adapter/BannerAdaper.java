@@ -20,17 +20,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 首页的轮播图
+ */
 public class BannerAdaper extends PagerAdapter {
-    private List<Map<String,Object>> mapList=new ArrayList<>();
+    private List<Map<String,Object>> mMapList =new ArrayList<>();
 
     public void setMapList(List<Map<String, Object>> mapList) {
-        this.mapList = mapList;
+        this.mMapList = mapList;
         notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return mapList.size();
+        return mMapList.size();
     }
 
     @Override
@@ -41,8 +44,8 @@ public class BannerAdaper extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        final Map map = mapList.get(position);
-        View view = LayoutInflater.from(MyApplication.getContext()).inflate(R.layout.activity_main_banner, container, false);
+        final Map map = mMapList.get(position);
+        View view = LayoutInflater.from(MyApplication.getmContext()).inflate(R.layout.activity_main_banner, container, false);
         final ImageView imageView = view.findViewById(R.id.banner_iv);
         TextView textView = view.findViewById(R.id.banner_tv);
         container.addView(view);
@@ -51,7 +54,7 @@ public class BannerAdaper extends PagerAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MyApplication.getContext(), WebActivity.class);
+                Intent intent = new Intent(MyApplication.getmContext(), WebActivity.class);
                 intent.putExtra("url",(String) map.get("url"));
                 ActivityCollector.getCurrentActivity().startActivity(intent);
             }

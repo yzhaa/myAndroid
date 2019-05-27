@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 public  class MyIntent {
     public static void startIntent(Class targetActivity, Bundle bundle){
-        Intent intent = new Intent(MyApplication.getContext(), targetActivity);
+        Intent intent = new Intent(MyApplication.getmContext(), targetActivity);
         if(bundle==null){
             ActivityCollector.getCurrentActivity().startActivity(intent);
         }

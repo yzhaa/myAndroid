@@ -20,8 +20,8 @@ public class JsonParase {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 T t = tClass.newInstance();
                 for (Field f:fields) {
-                    Method method = tClass.getMethod("set" + f.getName().substring(0,1).toUpperCase()+f.getName().substring(1), f.getType());
-                    method.invoke(t, jsonObject.getString(f.getName()));
+                    Method method = tClass.getMethod("set" +f.getName().substring(1), f.getType());
+                    method.invoke(t, jsonObject.getString(f.getName().substring(1,2).toLowerCase()+f.getName().substring(2)));
                 }
                 list.add(t);
             }

@@ -1,7 +1,6 @@
 package com.yzh.myanroid.util;
 
 
-import com.yzh.myanroid.db.MyCookieStorge;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -10,7 +9,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Map;
+
 
 
 public class HttpURlConnectionUtill {
@@ -41,7 +40,7 @@ public class HttpURlConnectionUtill {
     private static InputStream getStreamResultByPost(String path,String[] keys,String[] values){
         HttpURLConnection httpURLConnection ;
         try {
-            Map<String, ?> map = MyCookieStorge.readCookie();
+
             URL url = new URL(path);
             httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("POST");
@@ -50,10 +49,7 @@ public class HttpURlConnectionUtill {
             httpURLConnection.setDoInput(true);
             httpURLConnection.setUseCaches(false);
             httpURLConnection.setConnectTimeout(5*1000);
-            if(map.size()!=0){
-                httpURLConnection.setRequestProperty("Cookie","loginUserName="+map.get("name"));
-                httpURLConnection.setRequestProperty("Cookie","loginUserPassword="+map.get("password"));
-            }
+
             DataOutputStream out = new DataOutputStream(httpURLConnection.getOutputStream());
             int i = 0;
             StringBuilder stringBuilder = new StringBuilder();

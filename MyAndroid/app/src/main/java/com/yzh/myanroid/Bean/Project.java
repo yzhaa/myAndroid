@@ -1,22 +1,25 @@
 package com.yzh.myanroid.Bean;
 
+/**
+ * 项目的tab
+ */
 public class Project {
-    private String id;
-    private String name;
+    private String mId;
+    private String mName;
 
     public String getId() {
-        return id;
+        return mId;
     }
 
     public String getName() {
-        return name;
+        return mName;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.mId = id;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.mName = name;
     }
 }

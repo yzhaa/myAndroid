@@ -11,7 +11,7 @@ import android.widget.EditText;
 import com.yzh.myanroid.R;
 
 import com.yzh.myanroid.controller.asy.LoginAsy;
-import com.yzh.myanroid.util.BaseActivity;
+import com.yzh.myanroid.view.Activity.BaseActivity;
 import com.yzh.myanroid.util.MyToast;
 
 

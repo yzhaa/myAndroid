@@ -2,7 +2,6 @@ package com.yzh.myanroid.adapter;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,19 +16,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 项目中碎片的listview
+ */
 public class PageListViewAda extends BaseAdapter {
-    private List<Map<String, Object>> mapList;
+    private List<Map<String, Object>> mMapList;
 
 
     private class HandleItem {
-        ImageView imageView;
-        TextView textTitle;
-        TextView textDesc;
+        ImageView mImageView;
+        TextView mTextTitle;
+        TextView mTextDesc;
 
         private HandleItem(ImageView imageView, TextView textTitle, TextView textDesc) {
-            this.imageView = imageView;
-            this.textTitle = textTitle;
-            this.textDesc = textDesc;
+            this.mImageView = imageView;
+            this.mTextTitle = textTitle;
+            this.mTextDesc = textDesc;
         }
     }
 
@@ -39,28 +41,28 @@ public class PageListViewAda extends BaseAdapter {
     }
 
     public PageListViewAda() {
-        mapList = new ArrayList<>();
+        mMapList = new ArrayList<>();
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(MyApplication.getContext()).inflate(R.layout.project_item, parent, false);
+            convertView = LayoutInflater.from(MyApplication.getmContext()).inflate(R.layout.project_item, parent, false);
             ImageView imageView = convertView.findViewById(R.id.frame_iv);
             TextView textTitle = convertView.findViewById(R.id.frame_tv_title);
             TextView textDesc = convertView.findViewById(R.id.frame_tv_desc);
             HandleItem handleItem = new HandleItem(imageView, textTitle, textDesc);
             convertView.setTag(handleItem);
         }
-        final Map<String, Object> map = mapList.get(position);
+        final Map<String, Object> map = mMapList.get(position);
         HandleItem handleItem = (HandleItem) convertView.getTag();
-        handleItem.imageView.setImageBitmap((Bitmap) map.get("bitmap"));
-        handleItem.textTitle.setText((String) map.get("title"));
-        handleItem.textDesc.setText((String) map.get("desc"));
+        handleItem.mImageView.setImageBitmap((Bitmap) map.get("bitmap"));
+        handleItem.mTextTitle.setText((String) map.get("title"));
+        handleItem.mTextDesc.setText((String) map.get("desc"));
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MyApplication.getContext(), WebActivity.class);
+                Intent intent = new Intent(MyApplication.getmContext(), WebActivity.class);
                 intent.putExtra("url", (String) map.get("link"));
                 ActivityCollector.getCurrentActivity().startActivity(intent);
             }
@@ -69,17 +71,17 @@ public class PageListViewAda extends BaseAdapter {
     }
 
     public List<Map<String, Object>> getMapList() {
-        return mapList;
+        return mMapList;
     }
 
     @Override
     public int getCount() {
-        return mapList.size();
+        return mMapList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return mapList.get(position);
+        return mMapList.get(position);
     }
 
     @Override

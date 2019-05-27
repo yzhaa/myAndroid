@@ -11,6 +11,7 @@ import com.yzh.myanroid.adapter.BannerAdaper;
 import com.yzh.myanroid.db.BitmapStroge;
 import com.yzh.myanroid.db.MyData;
 import com.yzh.myanroid.util.CheakNetwork;
+import com.yzh.myanroid.util.Constant;
 import com.yzh.myanroid.util.HttpURlConnectionUtill;
 import com.yzh.myanroid.util.JsonParase;
 
@@ -37,21 +38,21 @@ public class BannAsy extends AsyncTask<Void, Void, List<Map<String, Object>>> {
             for (Banner b : banners) {
                 Map<String, Object> map = new HashMap<>();
                 map.put("url", b.getUrl());
-                Bitmap bitmap = BitmapStroge.getBitmap(BitmapStroge.BANNER + b.getId());
+                Bitmap bitmap = BitmapStroge.getBitmap(Constant.BANNER + b.getId());
                 if (bitmap != null) {
                     map.put("bitmap", bitmap);
                 }
-                map.put("id", BitmapStroge.BANNER +b.getId());
+                map.put("id", Constant.BANNER +b.getId());
                 map.put("title", b.getTitle());
                 mapList.add(map);
             }
         } else {
             if(CheakNetwork.cheakNetAndSend()) {
-                banners = JsonParase.getResult(HttpURlConnectionUtill.getStringResult("https://www.wanandroid.com/banner/json"), "data", Banner.class);
+                banners = JsonParase.getResult(HttpURlConnectionUtill.getStringResult(Constant.BANNER_URL), "data", Banner.class);
                 if (banners != null) {
                     for (Banner b : banners) {
                         Map<String, Object> map = new HashMap<>();
-                        map.put("id", BitmapStroge.BANNER + b.getId());
+                        map.put("id",Constant.BANNER + b.getId());
                         map.put("url", b.getUrl());
                         map.put("bitmap", BitmapFactory.decodeStream(HttpURlConnectionUtill.getStreamResult(b.getImagePath())));
                         map.put("title", b.getTitle());
